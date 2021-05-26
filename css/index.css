@@ -1,0 +1,131 @@
+:root {
+  --red: hsl(0, 100%, 74%);
+  --green: hsl(154, 59%, 51%);
+  --blue: hsl(248, 32%, 49%);
+  --dark-blue: hsl(249, 10%, 26%);
+  --grayish-blue: hsl(246, 25%, 77%);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+body {
+  max-width: 1400px;
+  width: 90%;
+  margin: 5rem auto;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+
+  background-image: url(../images/bg-intro-desktop.png);
+  background-repeat: no-repeat;
+  background-color: var(--red);
+  background-blend-mode: overlay;
+}
+
+main {
+  text-align: center;
+}
+
+.title {
+  font-weight: bolder;
+  color: white;
+  font-size: 1.6rem;
+  margin: 0rem 0 1rem 0;
+}
+
+.para-intro {
+  margin: 1rem 0 2rem 0;
+  color: white;
+  line-height: 1.7;
+}
+
+.link-button {
+  margin: 1.5rem 0;
+  padding: 1rem 2rem;
+  background-color: var(--blue);
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.link-button > span {
+  font-weight: bold;
+}
+
+.terms-conditions {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: lightgray;
+}
+
+.terms-conditions > span {
+  color: var(--red);
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.7rem;
+  padding: 1.5rem;
+}
+
+.button {
+  background-color: var(--green);
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-radius: 0.5rem;
+  display: block;
+  border: none;
+  color: white;
+  cursor: pointer;
+
+  width: 100%;
+}
+
+.form-control {
+  padding: 1rem 2rem;
+  margin: 0 0 1rem 0;
+  width: calc(100%);
+  border-radius: 0.5rem;
+
+  border: 1px solid lightgray;
+}
+
+.form-control:focus,
+button:focus {
+  box-shadow: 1px 5px 10px 2px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+.form-control::placeholder {
+  font-weight: bolder;
+}
+
+@media (min-width: 400px) {
+  main {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .intro {
+    text-align: initial;
+    align-self: center;
+  }
+
+  .para-intro {
+    max-width: 75ch;
+  }
+
+  .title {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+}
