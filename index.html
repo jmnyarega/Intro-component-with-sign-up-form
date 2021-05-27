@@ -29,19 +29,51 @@
           invaluable.
         </p>
       </section>
-      <section>
+      <section class="form">
         <div class="link-button">
           <span>Try it for free 7 days </span> then $20/mo. thereafter
         </div>
-        <form class="card">
-          <input type="text" placeholder="First Name" class="form-control" />
-          <input type="text" placeholder="Last Name" class="form-control" />
-          <input
-            type="email"
-            placeholder="Email Address"
-            class="form-control"
-          />
-          <input type="text" placeholder="Password" class="form-control" />
+        <form method="POST" action="" class="card" onsubmit="return validate()">
+          <div class="form-control">
+            <input type="text" placeholder="First Name" id="fname" />
+            <span id="fname-error"></span>
+            <img
+              id="fname-error-img"
+              src="./images/icon-error.svg"
+              alt="error"
+            />
+          </div>
+
+          <div class="form-control">
+            <input type="text" placeholder="Last Name" id="lname" />
+            <span id="lname-error"></span>
+            <img
+              id="lname-error-img"
+              src="./images/icon-error.svg"
+              alt="error"
+            />
+          </div>
+
+          <div class="form-control">
+            <input type="email" placeholder="Email Address" id="email" />
+            <span id="email-error"></span>
+            <img
+              id="email-error-img"
+              src="./images/icon-error.svg"
+              alt="error"
+            />
+          </div>
+
+          <div class="form-control">
+            <input type="text" placeholder="Password" id="password" />
+            <span id="password-error"></span>
+            <img
+              id="password-error-img"
+              src="./images/icon-error.svg"
+              alt="error"
+            />
+          </div>
+
           <button type="submit" class="button">Claim your free trial</button>
           <div class="terms-conditions">
             By clicking the button, you are agreeing to our
@@ -50,6 +82,6 @@
         </form>
       </section>
     </main>
+    <script src="./js/index.js"></script>
   </body>
 </html>
-
