@@ -21,21 +21,26 @@
   </head>
   <body>
     <main>
-      <section class="intro">
+      <div class="intro">
         <h3 class="title">Learn to code by watching others</h3>
         <p class="para-intro">
           See how experienced developers solve problems in real-time. Watching
           scripted tutorials is great, but understanding how developers think is
           invaluable.
         </p>
-      </section>
-      <section class="form">
+      </div>
+      <div class="form">
         <div class="link-button">
           <span>Try it for free 7 days </span> then $20/mo. thereafter
         </div>
         <form class="card" onsubmit="return validate()">
           <div class="form-control">
-            <input type="text" placeholder="First Name" id="fname" />
+            <input
+              type="text"
+              placeholder="First Name"
+              id="fname"
+              title="First Name"
+            />
             <span id="fname-error"></span>
             <img
               id="fname-error-img"
@@ -45,7 +50,12 @@
           </div>
 
           <div class="form-control">
-            <input type="text" placeholder="Last Name" id="lname" />
+            <input
+              type="text"
+              placeholder="Last Name"
+              id="lname"
+              title="Last Name"
+            />
             <span id="lname-error"></span>
             <img
               id="lname-error-img"
@@ -55,7 +65,12 @@
           </div>
 
           <div class="form-control">
-            <input type="email" placeholder="Email Address" id="email" />
+            <input
+              type="email"
+              placeholder="Email Address"
+              id="email"
+              title="email"
+            />
             <span id="email-error"></span>
             <img
               id="email-error-img"
@@ -65,7 +80,12 @@
           </div>
 
           <div class="form-control">
-            <input type="text" placeholder="Password" id="password" />
+            <input
+              type="text"
+              placeholder="Password"
+              id="password"
+              title="password"
+            />
             <span id="password-error"></span>
             <img
               id="password-error-img"
@@ -80,7 +100,7 @@
             <span>Terms and Services</span>
           </div>
         </form>
-      </section>
+      </div>
     </main>
     <script src="./js/index.js"></script>
   </body>
