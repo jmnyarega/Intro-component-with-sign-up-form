@@ -1,180 +1,111 @@
-:root {
-  --red: hsl(0, 100%, 74%);
-  --green: hsl(154, 59%, 51%);
-  --blue: hsl(248, 32%, 49%);
-  --dark-blue: hsl(249, 10%, 26%);
-  --grayish-blue: hsl(246, 25%, 77%);
-}
-
 html {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
   margin: 0;
-}
+  padding: 0;
+  line-height: 1.6; }
+
+@media (min-width: 70em) {
+  main {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-areas: "a b" "a c"; } }
+
+main .intro {
+  grid-area: a;
+  align-self: center;
+  text-align: initial; }
+
+main .banner__text {
+  grid-area: b; }
+
+main .form {
+  grid-area: c; }
 
 body {
-  max-width: 1400px;
-  width: 90%;
-  margin: 7rem auto;
-  font-size: 1rem;
+  max-width: 80em;
+  min-height: 100vh;
+  width: 70%;
+  margin: 0 auto;
+  font-size: 1.25rem;
   font-family: "Poppins", sans-serif;
-
-  background-image: url(../images/bg-intro-desktop.png);
-  background-repeat: no-repeat;
-  background-color: var(--red);
-  background-blend-mode: overlay;
-}
-
-/*
- * Typography
- *  1. main
- *  2. intro
- *  3. title
- *  4. para-intro
- *  5. form-control
- *  6. link-button
- *  7. terms-conditions
- *
- */
-
-main {
   text-align: center;
-}
+  background: no-repeat url(../images/bg-intro-desktop.png);
+  background-color: #ff7a7a;
+  background-blend-mode: multiply;
+  display: grid;
+  place-items: center; }
 
 .intro {
   color: white;
-  color: white;
-}
+  margin-bottom: 4rem;
+  max-width: 55ch; }
+  .intro__title {
+    font-weight: bolder;
+    margin-bottom: 1.5rem;
+    max-width: 55ch;
+    line-height: 1.2;
+    font-size: 2.5rem; }
+    @media (min-width: 70em) {
+      .intro__title {
+        font-size: 3.7rem; } }
+  .intro__text {
+    margin-bottom: 1rem; }
 
-.title {
-  font-weight: bolder;
-  font-size: 1.6rem;
-  margin: 0rem 0 1rem 0;
-}
-
-.para-intro {
-  margin: 1rem 0 2rem 0;
-  line-height: 1.7;
-}
-
-input + span {
-  font-size: 0.8rem;
-  display: block;
-  text-align: right;
-  font-style: italic;
-  color: var(--red);
-  font-weight: 500;
-}
-
-.form-control > img {
-  position: absolute;
-  top: 20%;
-  right: 5%;
-  display: none;
-}
-
-.link-button {
+.banner__text {
   margin: 1.5rem 0;
-  padding: 1rem 2rem;
-  background-color: var(--blue);
+  padding: 1rem 1.5rem;
+  background-color: #6055a5;
   border-radius: 0.5rem;
   color: white;
-}
+  font-weight: 600;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3); }
+  .banner__text span:last-child {
+    opacity: 0.7; }
 
-.link-button > span {
-  font-weight: bold;
-}
-
-.terms-conditions {
-  margin-top: 1rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: lightgray;
-}
-
-.terms-conditions > span {
-  color: var(--red);
-}
-
-/*
- * Components
- *  1. card
- *  2. button
- *  3. form
- *
- */
-
-.card {
+.form {
   background-color: white;
-  border-radius: 0.7rem;
-  padding: 1.5rem;
-}
+  border-radius: 0.5rem;
+  padding: 1.5rem 2rem; }
+  .form__control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #b9b6d3;
+    border-radius: 0.5rem;
+    background-color: white;
+    margin: 1rem 0; }
+    .form__control input {
+      padding: 1rem 1.5rem;
+      width: 100%;
+      border-radius: 0.5rem;
+      outline: none;
+      border: none; }
+    .form__control input::placeholder {
+      font-weight: bolder; }
+    .form__control:focus-within {
+      border: 1px dotted #b9b6d3; }
+    .form__control img {
+      display: none; }
 
 .button {
-  background-color: var(--green);
-  padding: 1rem 2rem;
-  text-transform: uppercase;
-  font-weight: bolder;
+  background-color: #38cc8c;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
   border-radius: 0.5rem;
   display: block;
+  width: 100%;
   border: none;
-  color: white;
-  cursor: pointer;
-
-  width: 100%;
-}
-
-.form-control > input {
-  padding: 1rem 2rem;
-  width: 100%;
-  border-radius: 0.5rem;
-
-  border: 1px solid lightgray;
-}
-
-.form-control {
-  margin: 0 0 1rem 0;
-  position: relative;
-}
-
-.form-control > input:focus,
-button:hover,
-button:focus {
-  box-shadow: 1px 5px 10px 2px rgba(0, 0, 0, 0.3);
   outline: none;
-}
-
-.form-control > input::placeholder {
+  border: 2px solid transparent;
+  text-transform: uppercase;
   font-weight: bolder;
-}
-
-@media (min-width: 400px) {
-  main {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .intro {
-    text-align: initial;
-    align-self: center;
-  }
-
-  .intro,
-  .form {
-    width: 45%;
-  }
-
-  .para-intro {
-    max-width: 75ch;
-  }
-
-  .title {
-    font-size: 3rem;
-    line-height: 1.2;
-  }
-}
+  color: white;
+  cursor: pointer; }
+  .button:hover, .button:focus, .button:focus-visible {
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);
+    border: 2px dotted white; }
