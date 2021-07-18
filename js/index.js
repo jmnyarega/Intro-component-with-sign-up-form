@@ -1,12 +1,12 @@
 const bodyStyles = window.getComputedStyle(document.body);
 
 const clearAll = () => {
-  const clear_span = document.querySelectorAll("input + span");
-  const clear_input = document.querySelectorAll("input");
-  const el_img = document.querySelectorAll(".form-control > img");
+  const clear_span = document.querySelectorAll(".error");
+  const clear_input = document.querySelectorAll(".input");
+  const el_img = document.querySelectorAll(".input > img");
   clear_span.forEach((cl) => (cl.innerText = ""));
-  clear_input.forEach((cl) => (cl.style = "1px solid"));
-  el_img.forEach((img) => (img.style.display = "none"));
+  clear_input.forEach((cl) => (cl.style = "2px solid transparent"));
+  el_img.forEach((img) => (img.style.opacity = 0));
 };
 
 function emailIsValid(email) {
@@ -15,12 +15,14 @@ function emailIsValid(email) {
 
 const validate = () => {
   const errors = [];
-  const fname = document.getElementById("fname").value;
-  const lname = document.getElementById("lname").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const el_popup = document.getElementById("popup");
 
-  clearAll();
+  const form = document.getElementById("intro");
+  let formd = new FormData(form);
+  const fname = formd.get("fname");
+  const lname = formd.get("lname");
+  const email = formd.get("email");
+  const password = formd.get("password");
 
   if (!fname.trim()) {
     errors.push({ id: "fname", error: "First Name is required!" });
@@ -38,15 +40,30 @@ const validate = () => {
     });
   }
 
-  errors?.forEach((err) => {
-    const el_span = document.getElementById(`${err.id}-error`);
-    const el_img = document.getElementById(`${err.id}-error-img`);
-    const el_input = document.getElementById(`${err.id}`);
-    el_span.innerHTML = err.error;
-    el_input.style.border = `2px solid ${bodyStyles.getPropertyValue("--red")}`;
-    el_input.style.color = `${bodyStyles.getPropertyValue("--red")}`;
-    el_img.style.display = "block";
+  clearAll();
+
+  errors?.forEach(({ id, error }) => {
+    const el_span = document.querySelector(`#${id} .error`);
+    const el_img = document.querySelector(`#${id} img`);
+    const el_input = document.querySelector(`#${id} .input`);
+
+    el_span.innerHTML = error;
+    el_input.style.border = `2px solid red`;
+    el_input.style.color = "red";
+    el_img.style.opacity = 1;
+    el_span.style.opacity = 1;
   });
 
-  return errors.length ? false : true;
+  if (errors.length === 0) {
+    el_popup.style.opacity = 1;
+    el_popup.style.zIndex = 1;
+  }
+
+  return false;
 };
+
+function close_popup() {
+  const el_popup = document.getElementById("popup");
+  el_popup.style.opacity = 0;
+  el_popup.style.zIndex = -1;
+}

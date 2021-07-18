@@ -6,6 +6,7 @@ $grayish-blue: hsl(246, 25%, 77%);
 $white: hsl(0, 100%, 100%);
 
 $ff-default: "Poppins", sans-serif;
+$fs-sm: 0.8rem;
 $fs-base: 1.25rem;
 $fs-h4: 1.5rem;
 $fs-h3: 2rem;
@@ -37,28 +38,28 @@ main {
     display: grid;
     grid-gap: $md-spacer;
     grid-template-areas: "a b" "a c";
-  }
 
-  .intro {
-    grid-area: a;
-    align-self: center;
-    text-align: initial;
-  }
+    .intro {
+      grid-area: a;
+      align-self: center;
+      text-align: initial;
+    }
 
-  .banner__text {
-    grid-area: b;
-  }
+    .banner__text {
+      grid-area: b;
+    }
 
-  .form {
-    grid-area: c;
+    .form {
+      grid-area: c;
+    }
   }
 }
 
 body {
   max-width: 80em;
   min-height: 100vh;
-  width: 70%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 5rem auto;
 
   font-size: $fs-base;
   font-family: $ff-default;
@@ -70,6 +71,17 @@ body {
 
   display: grid;
   place-items: center;
+
+  @media (min-width: $desktop-media) {
+      margin: 0 auto;
+      width: 70%;
+  }
+}
+
+.container {
+  max-width: max-content;
+  width: 90%;
+  margin: 5rem auto;
 }
 
 .intro {
@@ -96,7 +108,7 @@ body {
 }
 
 .banner__text {
-  margin: $md-spacer 0;
+  margin-bottom: $sm-spacer;
   padding: $sm-spacer $md-spacer;
   background-color: $blue;
   border-radius: $border-radius;
@@ -109,6 +121,55 @@ body {
   span:last-child {
     opacity: 0.7;
   }
+
+  @media (min-width: $desktop-media) {
+    margin-bottom: 0;
+  }
+}
+
+.popup {
+  background-color: $white;
+  border-radius: $border-radius;
+  padding: $bg-spacer;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  z-index: -1;
+
+  max-width: max-content;
+  margin: 0 auto;
+
+  transition: all 200ms linear;
+
+  &__text {
+    margin-top: $sm-spacer;
+    max-width: $text-width;
+    opacity: 0.7;
+  }
+
+  .button {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $sm-spacer;
+  }
+
+  &__close {
+    position: absolute;
+    right: $sm-spacer;
+    top: $sm-spacer;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      color: $blue;
+    }
+  }
 }
 
 .form {
@@ -117,33 +178,58 @@ body {
   padding: $md-spacer $bg-spacer;
 
   &__control {
-    display: flex;
+    display: grid;
     align-items: center;
-
-    border: 1px solid $grayish-blue;
-    border-radius: $border-radius;
-    background-color: white;
+    grid-template-areas: "a" "b";
     margin: $sm-spacer 0;
 
-    input {
-      padding: $sm-spacer $md-spacer;
-      width: 100%;
+    .error {
+      font-size: $fs-sm;
+      text-align: initial;
+      padding-left: $sm-spacer;
+      color: $red;
+      opacity: 0;
+
+      grid-area: b;
+    }
+
+    .input {
+      padding: $sm-spacer $sm-spacer;
       border-radius: $border-radius;
-      outline: none;
-      border: none;
+      border: 1px solid $grayish-blue;
+      border-radius: $border-radius;
+      background-color: white;
+      display: flex;
+      grid-area: a;
+
+      input {
+        outline: none;
+        border: none;
+        width: 95%;
+      }
+
+      img {
+        opacity: 0;
+      }
+
+      &:focus-within {
+        border: 1px dotted $grayish-blue;
+      }
     }
 
     input::placeholder {
       font-weight: bolder;
     }
+  }
+}
 
-    &:focus-within {
-      border: 1px dotted $grayish-blue;
-    }
+.terms {
+  color: $grayish-blue;
+  font-size: $fs-sm;
+  margin-top: $sm-spacer;
 
-    img {
-      display: none;
-    }
+  &--alt {
+    color: $red;
   }
 }
 

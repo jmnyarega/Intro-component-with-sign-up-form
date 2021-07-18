@@ -35,76 +35,93 @@
       </div>
 
       <div class="form">
-        <form action="#0">
-          <div class="form__control">
-            <input
-              type="text"
-              placeholder="First Name"
-              id="fname"
-              title="First Name"
-            />
-            <img
-              id="fname-error-img"
-              src="./images/icon-error.svg"
-              alt="error"
-            />
+        <form action="#0" novalidate onsubmit="return validate()" id="intro">
+          <div class="form__control" id="fname">
+            <div class="input">
+              <input
+                type="text"
+                placeholder="First Name"
+                name="fname"
+                title="First Name"
+              />
+              <img
+                id="fname-error-img"
+                src="./images/icon-error.svg"
+                alt="error"
+              />
+            </div>
+            <span class="error"></span>
           </div>
-          <span id="form__error"></span>
 
-          <div class="form__control">
-            <input
-              type="text"
-              placeholder="Last Name"
-              id="lname"
-              title="Last Name"
-            />
-            <img
-              id="lname-error-img"
-              src="./images/icon-error.svg"
-              alt="error"
-            />
+          <div class="form__control" id="lname">
+            <div class="input">
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="lname"
+                title="Last Name"
+              />
+              <img
+                id="lname-error-img"
+                src="./images/icon-error.svg"
+                alt="error"
+              />
+            </div>
+            <span class="error"></span>
           </div>
-          <span id="form__error"></span>
 
-          <div class="form__control">
-            <input
-              type="email"
-              placeholder="Email Address"
-              id="email"
-              title="email"
-              novalidate
-            />
-            <img
-              id="email-error-img"
-              src="./images/icon-error.svg"
-              alt="error"
-            />
+          <div class="form__control" id="email">
+            <div class="input">
+              <input
+                type="email"
+                placeholder="Email Address"
+                name="email"
+                title="email"
+              />
+              <img
+                id="email-error-img"
+                src="./images/icon-error.svg"
+                alt="error"
+              />
+            </div>
+            <span class="error"></span>
           </div>
-          <span id="form__error"></span>
 
-          <div class="form__control">
-            <input
-              type="password"
-              placeholder="Password"
-              id="password"
-              title="password"
-            />
-            <img
-              id="password-error-img"
-              src="./images/icon-error.svg"
-              alt="error"
-            />
+          <div class="form__control" id="password">
+            <div class="input">
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                title="password"
+              />
+              <img
+                id="password-error-img"
+                src="./images/icon-error.svg"
+                alt="error"
+              />
+            </div>
+            <span class="error"></span>
           </div>
-          <span id="form__error"></span>
 
           <button class="button">Claim your free trial</button>
-          <div class="terms-conditions">
-            By clicking the button, you are agreeing to our
-            <span class="terms-conditions terms-conditions--alt"
-              >Terms and Services</span
-            >
-          </div>
         </form>
+        <div class="terms">
+          By clicking the button, you are agreeing to our
+          <span class="terms terms--alt">Terms and Services</span>
+        </div>
+      </div>
+
+      <div class="popup container" id="popup">
+        <p class="popup__close" onclick="return close_popup()">X</p>
+        <h3 class="popup__title title">Thank you for signing up</h3>
+        <div class="popup__text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. At eligendi
+          accusantium, sit placeat omnis iure aperiam sequi?
+        </div>
+        <button class="popup__button button" onclick="return close_popup()">
+          Got it!
+        </button>
       </div>
     </main>
     <script src="./js/index.js"></script>
